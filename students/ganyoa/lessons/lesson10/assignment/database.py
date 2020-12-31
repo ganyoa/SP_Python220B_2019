@@ -46,6 +46,20 @@ class MongoDBConnection():
         self.connection.close()
 
 
+def timer(func):
+    '''
+    Decorator run time function
+    '''
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        run_time = end_time - start_time
+        print(f'Function {func.__name__} took {run_time:.4f} to run')
+        return result
+    return wrapper
+
+@timer
 def drop_collection():
     '''Drop all collections in database'''
     mongo = MongoDBConnection()
@@ -58,6 +72,7 @@ def drop_collection():
         norton_db.customers.drop()
 
 
+@timer
 def import_data(directory_name, product_file, customer_file, rental_file):
     '''
     import data from specified CSV files into mongo database
@@ -127,7 +142,7 @@ def import_data(directory_name, product_file, customer_file, rental_file):
     return ((prod_quant, cust_quant, rent_quant),
             (prod_err, cust_err, rent_err))
 
-
+@timer
 def show_available_products():
     '''
     display products and quantity available for rent
@@ -148,7 +163,7 @@ def show_available_products():
                                              int(prod['quantity_available'])}
     return prod_dict
 
-
+@timer
 def show_rentals(product_id):
     '''
     display customer details for specific products
