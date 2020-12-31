@@ -8,6 +8,7 @@ pylint disabled warnings: too-many-locals, logging-format-interpolation,
 import csv
 import logging
 import os
+import time
 from pymongo import MongoClient
 from pymongo import errors as mongoerr
 
@@ -55,7 +56,7 @@ def timer(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         run_time = end_time - start_time
-        print(f'Function {func.__name__} took {run_time:.4f} to run')
+        LOGGER.info(f'Function {func.__name__} took {run_time:.4f} to run')
         return result
     return wrapper
 
@@ -147,7 +148,7 @@ def show_available_products():
     '''
     display products and quantity available for rent
     '''
-    LOGGER.info("loop thru products collection for available product details")
+    LOGGER.info("loop thru products collection to show available products")
     prod_dict = {}
     mongo = MongoDBConnection()
     with mongo:
@@ -168,7 +169,7 @@ def show_rentals(product_id):
     '''
     display customer details for specific products
     '''
-    LOGGER.info("loop thru products collection for available product details")
+    LOGGER.info("loop thru products collection to show specific rental info")
     rent_dict = {}
     mongo = MongoDBConnection()
     with mongo:

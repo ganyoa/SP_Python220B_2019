@@ -1,0 +1,14 @@
+2020-12-31 11:32:29,605 database.py:70  INFO Drop all collections in database
+2020-12-31 11:32:29,615 database.py:59  INFO Function drop_collection took 0.0130 to run
+2020-12-31 11:32:29,617 database.py:99  INFO directory path for input files: C:\Users\ganyo\Desktop\Python_UW\py_220\SP_Python220B_2019\students\ganyoa\lessons\lesson10\assignment\data_files
+2020-12-31 11:32:29,617 database.py:103 INFO reading customers.csv
+2020-12-31 11:32:29,685 database.py:107 INFO Inserted 5 customer ids
+2020-12-31 11:32:29,685 database.py:117 INFO reading products.csv
+2020-12-31 11:32:29,757 database.py:121 INFO Inserted 7 product ids
+2020-12-31 11:32:29,757 database.py:131 INFO reading rentals.csv
+2020-12-31 11:32:29,805 database.py:135 INFO Inserted 10 rental ids
+2020-12-31 11:32:29,807 database.py:59  INFO Function import_data took 0.1907 to run
+2020-12-31 11:34:17,012 database.py:151 INFO loop thru products collection to show available products
+2020-12-31 11:34:17,025 database.py:59  INFO Function show_available_products took 0.0129 to run
+2020-12-31 11:34:40,026 database.py:172 INFO loop thru products collection to show specific rental info
+2020-12-31 11:34:40,040 database.py:59  INFO Function show_rentals took 0.0139 to run
